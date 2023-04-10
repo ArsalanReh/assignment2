@@ -1,0 +1,136 @@
+task one
+function outerFun (a){
+    let b=+prompt("Enter Your Fav Number");
+    function innerFun(){
+        let sum=a+b;
+        document.write(`Adding Two Numbers The Output ${sum}`)
+
+    }
+    return innerFun;
+}
+let add=outerFun(3)
+console.dir(add);
+add();
+
+
+task two
+
+let findName=["arsal","zohaib","faizan","zain","rehmat","anis"];
+
+
+let nam=findName.filter(function(val){
+    if(val==="anis"){
+        return true;
+    }else{
+        return false;
+    }
+})
+document.write(nam)
+
+
+task three
+ <button id="btn" onclick="addpara()">
+        click Please
+    </button>
+function addpara(){
+    
+const para = document.createElement("p");
+para.innerText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+document.body.appendChild(para);
+document.getElementById("btn").onclick = false;
+
+}
+
+
+
+
+
+task four
+
+ <h2>list of item </h2>
+
+    <ul id="list">
+        <li>apple</li>
+        <li>banana</li>
+        <li>orange</li>
+    </ul>
+setInterval(function(){
+    
+    let listCreate=document.createElement("li");
+    listCreate.innerText="graph";
+    document.getElementById('list').appendChild(listCreate);
+},8000)
+
+
+
+
+
+
+
+ task five
+setInterval(function(){
+   
+        let x = Math.floor(Math.random() * 256)
+        let y = Math.floor(Math.random() * 256)
+        let z = Math.floor(Math.random() * 256)
+        let bgColor = `rgb(${x}, ${y}, ${z})`
+        document.body.style.background = bgColor;
+     
+
+},1000)
+
+ task six
+
+
+
+let preStudent=localStorage.getItem("studentInfo");
+
+let students=preStudent ?JSON.parse(preStudent):[];
+// let std=[];
+function studentInfo(){
+    let std= {name:prompt("enter your name"),
+    age:+prompt("enter your age"),
+    className:prompt("enter your class"),
+    teacherName:prompt("enter your teacher name"),
+    }
+    students.push(std);
+    let stringify=JSON.stringify(students);
+    localStorage.setItem("studentInfo",stringify);
+    console.log(students);
+    
+}
+
+
+
+
+
+
+task seven
+
+
+const myObject = {
+    name : "Arsalan",
+    age : 25,
+    gender : "male",
+    profession : "Student" 
+  }
+  
+  window.localStorage.setItem("myObject", JSON.stringify(myObject));
+  let newObject = window.localStorage.getItem("myObject");
+console.log(JSON.parse(newObject));
+
+
+task eight
+
+function saveObjectToLocalStorage(obj) {
+    for (const [key, value] of Object.entries(obj)) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+    
+    const newObj = {};
+    for (const key of Object.keys(obj)) {
+      newObj[key] = JSON.parse(localStorage.getItem(key));
+    }
+    
+    return newObj;
+  }
